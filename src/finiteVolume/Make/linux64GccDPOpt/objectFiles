@@ -1,5 +1,4 @@
 OBJECTS = \
-$(OBJECTS_DIR)/timeVaryingMappedFluctuatingFixedValueFvPatchFields.o\
 $(OBJECTS_DIR)/turbulentABLVelocityControlledFvPatchField.o\
 $(OBJECTS_DIR)/turbulentABLTemperatureControlledFvPatchField.o\
 $(OBJECTS_DIR)/SchumannGrotzbachFvPatchField.o\

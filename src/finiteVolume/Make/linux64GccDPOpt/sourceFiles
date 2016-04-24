@@ -1,5 +1,4 @@
 SOURCE = \
-$(derivedFvPatchFields)/timeVaryingMappedFluctuatingFixedValue/timeVaryingMappedFluctuatingFixedValueFvPatchFields.C\
 $(derivedFvPatchFields)/turbulentABLVelocityControlled/turbulentABLVelocityControlledFvPatchField.C\
 $(derivedFvPatchFields)/turbulentABLTemperatureControlled/turbulentABLTemperatureControlledFvPatchField.C\
 $(surfaceStressModels)/SchumannGrotzbach/SchumannGrotzbachFvPatchField.C\

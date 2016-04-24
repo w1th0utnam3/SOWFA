@@ -136,3 +136,8 @@ cd ../../../
 cd src/fastturb
 wmake libso
 cd ../../
+
+cd applications/solvers/incompressible/windEnergy/windPlantSolverFAST
+wmake
+cd ../../../../../
+

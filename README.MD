@@ -1,5 +1,5 @@
-This repistory fixes some errors we expierenced while trying to compile SOWFA using OpenFOAM 2.4.x.
+This repository fixes some errors we experienced while trying to compile SOWFA using OpenFOAM 2.4.x.
 
-TODO:
+## Todo
  - Test compilation with FAST
  - Add fixed tutorials

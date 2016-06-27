@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+  
+### Job name
+#BSUB -J sj114775-OpenFOAM-SOWFA
+
+#BSUB -o output.%J
+
+#BSUB -u stefan.jeske@rwth-aachen.de 
+#BSUB -N
+  
+###  64 processes, all on one node
+#BSUB -n 60
+#BSUB -a openmpi
+  
+### Limit for maximum memory per slot (in MB)
+#BSUB -M 1000
+  
+### The time limit for the job in minutes (reaching this time limit, the process is signaled and killed)
+#BSUB -W 45
+  
+module load gcc/6
+
+### Source OpenFOAM
+source ~/OpenFOAM/OpenFOAM-2.4.0/etc/bashrc
+
+###
+cd ~/OpenFOAM/sj114775-2.4.0/tutorials/turbine/RefTurbine_001
+runscript.1

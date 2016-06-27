@@ -1,0 +1,72 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.0.x                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "0";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include        "include/initialConditions"
+
+dimensions      [ 0 1 -1 0 0 0 0 ];
+
+internalField   uniform $flowVelocity;
+
+boundaryField
+{
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    west 
+    {
+        type            codedFixedValue;
+        value           uniform (0 0 0);
+        redirectType    velocityRampInlet;   
+
+        code
+        #{
+            const fvPatch& boundaryPatch = patch(); 
+            const vectorField& Cf = boundaryPatch.Cf(); 
+
+            vectorField& field = *this; 
+
+            forAll(Cf, faceI)
+            {
+                field[faceI] = vector(0.01169 * Cf[faceI].y() + 7.774
+				      ,0 
+				      ,0);
+                
+            }
+        #};
+    }
+    east 
+    {
+        type            inletOutlet;
+        inletValue      uniform (0.0 0.0 0.0);
+    }
+    north 
+    {
+        type            cyclic;
+    }
+    south
+    {
+        type            cyclic;
+    }
+}
+
+
+// ************************************************************************* //
